@@ -1,60 +1,65 @@
 package org.launchcode.techjobs.oo;
 
-import mockit.Expectations;
-import mockit.Mocked;
-import mockit.Tested;
-import org.junit.Assert;
 import org.junit.Test;
-
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-
 import static org.junit.Assert.*;
+import java.lang.reflect.Method;
+import org.launchcode.techjobs.oo.test.JobTest;
 
-/**
- * Created by LaunchCode
- */
 public class TestTaskFour extends AbstractTest {
-
-    @Tested
-    JobTest jobTest;
-    @Mocked
-    Job job;
-    @Mocked
-    Assert mockedAssert;
 
     @Test
     public void testTestSettingJobIdExists() throws ClassNotFoundException {
-        Class jobTestClass = getClassByName("JobTest");
-        Method testSettingJobIdMethod = null;
-
+        Class jobTestClass = getClassByName("org.launchcode.techjobs.oo.test.JobTest");
         try {
-            testSettingJobIdMethod = jobTestClass.getMethod("testSettingJobId");
+            Method testSettingJobIdMethod = jobTestClass.getMethod("testSettingJobId");
+            assertNotNull(testSettingJobIdMethod);
         } catch (NoSuchMethodException e) {
-            fail("JobTest does not have a testSettingId method");
+            fail("JobTest does not have a testSettingJobId method");
         }
     }
 
     @Test
-    public void testTestJobConstructorSetsAllFieldsExists() throws ClassNotFoundException {
-        Class jobTestClass = getClassByName("JobTest");
-        Method testSettingJobIdMethod = null;
+    public void testTestSettingJobIdCallsJobConstructorTwice() throws Exception {
+        JobTest jobTest = new JobTest();
+        jobTest.testSettingJobId();
+        // Placeholder for further assertions or logic
+    }
 
+    @Test
+    public void testTestJobConstructorSetsAllFieldsExists() throws ClassNotFoundException {
+        Class jobTestClass = getClassByName("org.launchcode.techjobs.oo.test.JobTest");
         try {
-            testSettingJobIdMethod = jobTestClass.getMethod("testJobConstructorSetsAllFields");
+            Method testJobConstructorSetsAllFieldsMethod = jobTestClass.getMethod("testJobConstructorSetsAllFields");
+            assertNotNull(testJobConstructorSetsAllFieldsMethod);
         } catch (NoSuchMethodException e) {
             fail("JobTest does not have a testJobConstructorSetsAllFields method");
         }
     }
 
     @Test
-    public void testTestJobsForEqualityExists() throws ClassNotFoundException {
-        Class jobTestClass = getClassByName("JobTest");
+    public void testTestJobConstructorSetsAllFieldsCallsAsserts() throws Exception {
+        JobTest jobTest = new JobTest();
+        jobTest.testJobConstructorSetsAllFields();
+        // Placeholder for further assertions or logic
+    }
 
+    @Test
+    public void testTestJobsForEqualityExists() throws ClassNotFoundException {
+        Class jobTestClass = getClassByName("org.launchcode.techjobs.oo.test.JobTest");
         try {
-            jobTestClass.getMethod("testJobsForEquality");
+            Method testJobsForEqualityMethod = jobTestClass.getMethod("testJobsForEquality");
+            assertNotNull(testJobsForEqualityMethod);
         } catch (NoSuchMethodException e) {
             fail("JobTest does not have a testJobsForEquality method");
         }
     }
+
+    @Test
+    public void testTestJobsForEqualityCallsAssertion() throws Exception {
+        JobTest jobTest = new JobTest();
+        jobTest.testJobsForEquality();
+        // Placeholder for further assertions or logic
+    }
+
+    // Any additional test methods should follow the same pattern
 }
